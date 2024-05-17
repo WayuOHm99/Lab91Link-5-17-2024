@@ -62,13 +62,13 @@ class LinkList {
     // Method to remove the node with the maximum value
     public Integer removeMax() {
         if (islempty()) {
-            System.out.println("Cannot find max. LinkedList is empty.");
-            return null;
+            return null; // Don't print anything if the list is empty
         }
 
         int maxIndex = findMax();
         Link current = first;
         Integer removedValue = null;
+        
 
         if (maxIndex == 0) {
             removedValue = first.value;
@@ -81,10 +81,11 @@ class LinkList {
             current.next = current.next.next;
         }
 
-        System.out.println(removedValue + " has been removed.");
+        System.out.println(removedValue + " has been removed."); // Print removal message
         return removedValue;
     }
 }
+
 
 public class LinkedList {
     public static void main(String[] args) {
@@ -95,11 +96,8 @@ public class LinkedList {
         numlist.insertFirst(75);
         numlist.insertFirst(162);
 
-        numlist.printlst();
-
-        System.out.println("Index of max element: " + numlist.findMax());
-
-        numlist.removeMax();
-        numlist.printlst();
+        numlist.printlst(); // Print initial list
+        numlist.removeMax(); // Remove max and print messages
+        numlist.printlst(); // Print list after removal
     }
 }
